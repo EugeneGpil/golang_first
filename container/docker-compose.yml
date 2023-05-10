@@ -13,3 +13,4 @@ services:
       - ../back:/var/www/back
     command: tail -F anything
     restart: unless-stopped
+    user: "${ID_GROUP}:${ID_USER}"
