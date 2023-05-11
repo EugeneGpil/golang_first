@@ -28,7 +28,7 @@ func main() {
     // messages to the console.
 	// fmt.Println(messages)
 
-	for _, message := range messages {
-		fmt.Println(message)
+	for name, message := range messages {
+		fmt.Println(fmt.Sprintf("%v. %v", name, message))
 	}
 }
