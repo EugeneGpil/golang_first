@@ -28,3 +28,8 @@ Run tests with explanation
 ```
 go test -v
 ```
+
+Compile the code into the executable
+```
+go build
+```
