@@ -15,7 +15,7 @@ func Sqrt(x float64) float64 {
 		if xIn10Int == zIn2In10Int {
 			zIn2SimilarToXTimes++
 		}
-		z -= (z*z - x) / (2*z)
+		z -= (z*z - x) / (2 * z)
 	}
 
 	return z
