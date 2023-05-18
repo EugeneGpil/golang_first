@@ -29,8 +29,3 @@ ENV PATH /usr/local/go/bin:${PATH}
 USER app
 RUN go install -v golang.org/x/tools/gopls@latest &&\
     go install -v github.com/ramya-rao-a/go-outline@v0.0.0-20210608161538-9736a4bde949
-
-# install fleet
-# USER root
-# RUN curl -LSs "https://download.jetbrains.com/product?code=FLL&release.type=preview&release.type=eap&platform=linux_x64" --output fleet && chmod +x fleet
-# RUN mkdir /var/www && cp fleet /var/www/
