@@ -20,8 +20,17 @@ func Scale(v Vertex, f float64) Vertex {
 	return v
 }
 
+func ScalePointer(v *Vertex, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
 func main() {
 	v := Vertex{3, 4}
 	v = Scale(v, 10)
 	fmt.Println(Abs(v))
+
+	v2 := Vertex{3, 4}
+	ScalePointer(&v2, 10)
+	fmt.Println(Abs(v2))
 }
