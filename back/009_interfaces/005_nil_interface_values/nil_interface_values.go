@@ -10,6 +10,7 @@ type MyInterface interface {
 
 func main() {
 	var myInterfaceVar MyInterface
+
 	describe(myInterfaceVar)
 	myInterfaceVar.MyMethod()
 }
