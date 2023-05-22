@@ -9,15 +9,16 @@ type MyInterface interface {
 	MyMethod()
 }
 
-
 type MyType struct {
 	MyString string
 }
+
 func (t *MyType) MyMethod() {
 	fmt.Println(t.MyString)
 }
 
 type MyFloat float64
+
 func (f MyFloat) MyMethod() {
 	fmt.Println(f)
 }
