@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// Index retruns position of element, or -1 if not found
+// Index returns position of element, or -1 if not found
 func Index[T comparable](whereToSearch []T, elementValue T) int {
 	for index, value := range whereToSearch {
 		if value == elementValue {
