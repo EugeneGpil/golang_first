@@ -1,5 +1,7 @@
 dev:
-	docker compose up --build --remove-orphans --detach &&\
+	docker compose up --build --remove-orphans --detach
+
+exec:
 	docker compose exec --user=app golang bash
 
 exec-root:
