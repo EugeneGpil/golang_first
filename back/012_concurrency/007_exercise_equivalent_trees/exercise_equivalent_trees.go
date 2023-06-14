@@ -1,18 +1,24 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 
 	"golang.org/x/tour/tree"
 )
 
 func Walk(t *tree.Tree, ch chan int) {
+	walkRecurse(t, ch)
+	close(ch)
+}
+
+func walkRecurse(t *tree.Tree, ch chan int) {
 	if (t.Left != nil) {
-		Walk(t.Left, ch)
+		walkRecurse(t.Left, ch)
 	}
 
 	if (t.Right != nil) {
-		Walk(t.Right, ch)
+		walkRecurse(t.Right, ch)
 	}
 
 	ch <- t.Value
@@ -20,24 +26,17 @@ func Walk(t *tree.Tree, ch chan int) {
 
 func Same(t1, t2 *tree.Tree) bool {
 	ch1, ch2 := make(chan int), make(chan int)
-	go Walk(tree.New(1), ch1)
-	go Walk(tree.New(1), ch2)
+	go Walk(t1, ch1)
+	go Walk(t2, ch2)
 	arr1, arr2 := []int{}, []int{}
-	x := 0
-	for i := 0; i < 20; i++ {
-		select {
-		case ch1 <- x:
-			arr1 = append(arr1, x)
-		case ch2 <- x:
-			arr2 = append(arr2, x)
-		}
+	for ch1Var := range ch1 {
+		arr1 = append(arr1, ch1Var)
 	}
-
-	function := func(i2, j int) bool {
-		return i2 < j
+	for ch2Var := range ch2 {
+		arr2 = append(arr2, ch2Var)
 	}
-	sort.Slice(arr1, function)
-	sort.Slice(arr2, function)
+	sort.Ints(arr1)
+	sort.Ints(arr2)
 
 	for i := 0; i < 10; i++ {
 		if (arr1[i] != arr2[i]) {
@@ -49,5 +48,5 @@ func Same(t1, t2 *tree.Tree) bool {
 }
 
 func main() {
-	Same(tree.New(1), tree.New(1))
+	fmt.Println(Same(tree.New(1), tree.New(1)))
 }
