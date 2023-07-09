@@ -33,3 +33,9 @@ Compile the code into the executable
 ```
 go build
 ```
+
+Replace module
+```
+go mod edit -replace github.com/EugeneGpil/greetings=../greetings
+```
+
