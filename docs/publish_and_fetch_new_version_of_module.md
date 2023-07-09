@@ -12,5 +12,5 @@ https://sum.golang.org/lookup/github.com/eugenegpil/greetings@v0.0.1
 in terminal
 ```
 go get -u
-go tidy
+go mod tidy
 ```
