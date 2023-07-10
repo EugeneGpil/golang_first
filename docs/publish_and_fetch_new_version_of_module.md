@@ -22,6 +22,5 @@ require github.com/EugeneGpil/greetings v0.0.1
 
 in terminal
 ```
-go get -u
 go mod tidy
 ```
