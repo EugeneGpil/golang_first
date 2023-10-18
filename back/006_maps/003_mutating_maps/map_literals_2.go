@@ -16,4 +16,9 @@ func main() {
 
 	value, isset := m["anser"]
 	fmt.Println(value, isset)
+
+	map2 := make(map[string]string)
+
+	value2, isset := map2["test"]
+	fmt.Println(value2, isset)
 }
